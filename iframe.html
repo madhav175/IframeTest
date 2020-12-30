@@ -1,22 +1,26 @@
+<!DOCTYPE html>
 <html>
-<header><title>This is title</title></header>
-<script type="text/javascript">
-function makeRequestWithUserGesture() {
-			  var promise = document.requestStorageAccess();
-			  promise.then(
-			    function () {
-				text.value += 'Access granted';
-				console.log("Access granted");
-			      // Storage access was granted.
-			    },
-			    function () {
-			      // Storage access was denied.
-				console.log("Access Denied");
-				text.value += 'Access denied';
-			    }
-			  );
-			}
-</script>
+<head>
+	<title>JSOM DCR Test</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9" /> 
+	<script type="text/javascript">
+	function makeRequestWithUserGesture() {
+				  var promise = document.requestStorageAccess();
+				  promise.then(
+				    function () {
+					text.value += 'Access granted';
+					console.log("Access granted");
+				      // Storage access was granted.
+				    },
+				    function () {
+				      // Storage access was denied.
+					console.log("Access Denied");
+					text.value += 'Access denied';
+				    }
+				  );
+				}
+	</script>
+</head>
 <body>
   <div> Hello world
   </div>
