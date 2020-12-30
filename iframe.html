@@ -5,20 +5,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=9" /> 
 	<script type="text/javascript">
 	function makeRequestWithUserGesture() {
-				  var promise = document.requestStorageAccess();
-				  promise.then(
-				    function () {
-					text.value += 'Access granted';
-					console.log("Access granted");
-				      // Storage access was granted.
-				    },
-				    function () {
-				      // Storage access was denied.
-					console.log("Access Denied");
-					text.value += 'Access denied';
-				    }
-				  );
-				}
+		var promise = document.hasStorageAccess();
+		promise.then(
+		  function (hasAccess) {
+		    // Boolean hasAccess says whether the document has access or not.
+			  text.value += 'Has Access';
+		  },
+		  function (reason) {
+		    // Promise was rejected for some reason.
+			  text.value += "failure" + reason;
+		  }
+		);
+		  var promise = document.requestStorageAccess();
+		  promise.then(
+		    function () {
+			text.value += 'Access granted';
+			console.log("Access granted");
+		      // Storage access was granted.
+		    },
+		    function () {
+		      // Storage access was denied.
+			console.log("Access Denied");
+			text.value += 'Access denied';
+		    }
+		  );
+		}
 	</script>
 </head>
 <body>
